@@ -1,3 +1,5 @@
+package OrderProcess;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -70,5 +72,17 @@ public class Main {
                 product.getProductStatus()));
     System.out.println("Active products :");
     filteredProducts.forEach(System.out::println);
+    
+    System.out.println("\nActive Products Sorted By Price :");
+    manager.getActiveProductsSortedByPrice().forEach(System.out::println);
+    
+    System.out.println("\nAverage Price In Category :");
+    double averagePriceOptional = manager.calculateAveragePriceInCategory("Category 1");
+    System.out.println(averagePriceOptional);
+    
+    System.out.println("\nCategory Price Sum :");
+    Map<String, Double> getCategoryPriceSum = manager.getCategoryPriceSum();
+    getCategoryPriceSum.forEach((category,price) -> System.out.println(category + " " + price));
+
   }
 }
